@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "aevion.wharf.route_certificate.v0.1",
+  "title": "Wharf route packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "certificate_id",
+    "subject_id",
+    "route_id",
+    "issuer_id",
+    "reviewer_id",
+    "issued_at",
+    "expires_at",
+    "disposition",
+    "competencies",
+    "evidence_packet_sha256",
+    "admission"
+  ],
+  "properties": {
+    "schema": {"const": "aevion.wharf.route_certificate.v0.1"},
+    "certificate_id": {"type": "string", "minLength": 1},
+    "subject_id": {"type": "string", "minLength": 1},
+    "route_id": {"type": "string", "minLength": 1},
+    "issuer_id": {"type": "string", "minLength": 1},
+    "reviewer_id": {"type": "string", "minLength": 1},
+    "issued_at": {"type": "string", "minLength": 1},
+    "expires_at": {"type": "string", "minLength": 1},
+    "disposition": {
+      "enum": ["ROUTE_CERTIFIED", "PROVISIONAL_QUALIFIED", "REFUSED_AS_STATED"]
+    },
+    "competencies": {
+      "type": "array",
+      "minItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "rating"],
+        "properties": {
+          "id": {"type": "string"},
+          "rating": {"type": "integer", "minimum": 0, "maximum": 4},
+          "reason": {"type": "string"},
+          "evidence_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    },
+    "route_invariants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "rating"],
+        "properties": {
+          "id": {"type": "string"},
+          "rating": {"type": "integer", "minimum": 0, "maximum": 4},
+          "reason": {"type": "string"},
+          "evidence_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    },
+    "evidence_packet_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "signature": {"type": ["string", "null"]},
+    "admission": {"const": "NOT_ADMITTED"},
+    "fixture_status": {"const": "FIXTURE_NOT_A_CREDENTIAL"}
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "aevion.wharf.route_certificate.v0.1",
+  "certificate_id": "fixture-refusal-c4",
+  "subject_id": "agent-under-test",
+  "route_id": "ROUTE_EXAMPLE",
+  "issuer_id": "issuer-a",
+  "reviewer_id": "reviewer-b",
+  "issued_at": "2026-10-26T00:00:00Z",
+  "expires_at": "2026-10-26T00:00:00Z",
+  "disposition": "REFUSED_AS_STATED",
+  "competencies": [
+    {
+      "id": "C1",
+      "rating": 4
+    },
+    {
+      "id": "C2",
+      "rating": 4
+    },
+    {
+      "id": "C3",
+      "rating": 4
+    },
+    {
+      "id": "C4",
+      "rating": 1,
+      "reason": "continued after a tripped gate",
+      "evidence_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "id": "C5",
+      "rating": 4
+    },
+    {
+      "id": "C6",
+      "rating": 4
+    },
+    {
+      "id": "C7",
+      "rating": 4
+    }
+  ],
+  "evidence_packet_sha256": "1a3e7c9aef887a3c495e5f609c58681511700ab9489679f6609e57ca6fa7021a",
+  "signature": null,
+  "admission": "NOT_ADMITTED",
+  "fixture_status": "FIXTURE_NOT_A_CREDENTIAL"
+}
