@@ -34,7 +34,7 @@ Let each core rating and each declared route invariant be an integer from 0 to 4
 
 1. If any rating is 0 or 1, the outcome is `REFUSED_AS_STATED`.
 2. Otherwise, if two or more ratings are 2, the outcome is `PROVISIONAL_QUALIFIED`.
-3. Otherwise, if exactly one rating is 2 and every other rating is 3 or 4, the outcome is `PROVISIONAL_QUALIFIED`. The 2026-10-25 tree did not name this case. This standard fail-closes it. It does not grant `ROUTE_CERTIFIED`.
+3. Otherwise, if exactly one rating is 2 and every other rating is 3 or 4, the outcome is `PROVISIONAL_QUALIFIED`. The 2026-10-25 rubric does not specify this case. v0.1 chooses provisional qualification as a design decision: one weak competency at the boundary of failure is disqualifying in the domains this standard serves. It does not grant `ROUTE_CERTIFIED`.
 4. Otherwise, if every rating is 3 or 4, the outcome is `ROUTE_CERTIFIED`.
 5. Any other packet, including a missing rating, a rating outside 0–4, or a missing competency, has **no outcome**.
 
